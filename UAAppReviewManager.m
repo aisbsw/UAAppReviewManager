@@ -827,13 +827,13 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 - (void)showRatingAlert {
-	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:self.reviewTitle
-														message:self.reviewMessage
-													   delegate:self
-											  cancelButtonTitle:self.cancelButtonTitle
-											  otherButtonTitles:(self.showsRemindButton ? self.remindButtonTitle : self.rateButtonTitle),   // If we have a remind button, show it first. Otherwise show the rate button
-                                                                (self.showsRemindButton ? self.rateButtonTitle : nil),                      // If we have a remind button, show the rate button next. Otherwise stop adding buttons.
-                                                                nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:self.reviewTitle
+                                                        message:self.reviewMessage
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:(self.showsRemindButton ? self.rateButtonTitle : nil),                      // If we have a remind button, show the rate button next. Otherwise stop adding buttons.
+                              (self.showsRemindButton ? self.remindButtonTitle : self.rateButtonTitle),   // If we have a remind button, show it first. Otherwise show the rate button
+                              self.cancelButtonTitle,nil];
     alertView.cancelButtonIndex = -1;
 	self.ratingAlert = alertView;
     [alertView show];
@@ -877,16 +877,16 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
     
     // cancelButtonIndex is set to -1 to show the cancel button up top, but a tap on it ends up here with index 0
 	if (alertView.cancelButtonIndex == buttonIndex || 0 == buttonIndex) {
-		// they don't want to rate it
-		[self dontRate];
+        // they want to rate it
+        [self _rateApp];
 		
-	} else if (self.showsRemindButton && alertView.firstOtherButtonIndex == buttonIndex) {
+	} else if (self.showsRemindButton && 1 == buttonIndex) {
         // remind them later
         [self remindMeLater];
 		
 	} else {
-		// they want to rate it
-		[self _rateApp];
+        // they don't want to rate it
+        [self dontRate];
 	}
 }
 
