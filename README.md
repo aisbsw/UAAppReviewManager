@@ -1,8 +1,4 @@
-##### UAAppReviewManager（Liveコミック向け）
 
-Liveコミック向けに表示のみカスタマイズしたUAAppReviewManagerです
-
-![UAAppReviewManager](https://github.com/aisbsw/UAAppReviewManager/blob/master/Screenshots/LiveCimic.png?raw=true)
 
 UAAppReviewManager is a simple and lightweight App review prompting tool for iOS and Mac App Store apps. It's Appirater all grown up, ready for primetime.
 
@@ -78,16 +74,15 @@ That's it to get started. Setting UAAppReviewManager up with these two lines use
 Typical configuration is to show the prompt in `application:didFinishLaunchingWithOptions:` and `applicationWillEnterForeground:`, but it can be called from anywhere. There are tons of custom configuration options below that give you the ability to fine tune the setup, block syntax, deep customization and more, but these 2 lines are all you need to get started.
 
 
-### Liveコミックの場合
+### 使用例
 
 `application:didFinishLaunchingWithOptions:`で以下の設定をします
 
-    [UAAppReviewManager setAppID:@"881371706"];
+    [UAAppReviewManager setAppID:@"123456789"];
     [UAAppReviewManager setDaysUntilPrompt:7]; //インストールしてから７日後
     [UAAppReviewManager setDaysBeforeReminding:14]; //１４日後にリマインド
     [UAAppReviewManager setUsesUntilPrompt:1]; //１回以上の使用
     [UAAppReviewManager setReviewTitle:@"アプリレビューのお願い"];
-    [UAAppReviewManager setReviewMessage:@"いつもLiveコミックをご利用いただき、\nありがとうございます！\n\n皆様が評価してくださることで、より良い改善ができるようになります。\nぜひご意見、ご感想をお聞かせください。"];
     [UAAppReviewManager setCancelButtonTitle:@"不具合を報告する"];
     [UAAppReviewManager setRateButtonTitle:@"★5でレビューして応援する"];
     [UAAppReviewManager setRemindButtonTitle:@"今は評価しない"];
