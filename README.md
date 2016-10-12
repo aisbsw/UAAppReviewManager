@@ -1,4 +1,6 @@
-**Looking for a Swift implementation? We rewrote UAAppReviewManager from scratch to create [Armchair](http://github.com/UrbanApps/Armchair). UAAppReviewManager isn't going anywhere, but you may want to use Armchair you want to implement a purely swift library into your app. Otherwise, please read on...**
+##### UAAppReviewManager（Liveコミック向け）
+
+Liveコミック向けに表示のみカスタマイズしたUAAppReviewManagerです
 
 ![UAAppReviewManager](https://github.com/aisbsw/UAAppReviewManager/blob/master/Screenshots/LiveCimic.png?raw=true)
 
