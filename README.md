@@ -86,6 +86,13 @@ Typical configuration is to show the prompt in `application:didFinishLaunchingWi
     [UAAppReviewManager setDaysUntilPrompt:7]; //インストールしてから７日後
     [UAAppReviewManager setDaysBeforeReminding:14]; //１４日後にリマインド
     [UAAppReviewManager setUsesUntilPrompt:1]; //１回以上の使用
+    [UAAppReviewManager setReviewTitle:@"アプリレビューのお願い"];
+    [UAAppReviewManager setReviewMessage:@"いつもLiveコミックをご利用いただき、\nありがとうございます！\n\n皆様が評価してくださることで、より良い改善ができるようになります。\nぜひご意見、ご感想をお聞かせください。"];
+    [UAAppReviewManager setCancelButtonTitle:@"不具合を報告する"];
+    [UAAppReviewManager setRateButtonTitle:@"★5でレビューして応援する"];
+    [UAAppReviewManager setRemindButtonTitle:@"今は評価しない"];
+    [UAAppReviewManager setOnDeclineToRate:^{ //キャンセルボタン押下
+    }];
 
 その後、任意の場所でレビュー誘導を表示
 
