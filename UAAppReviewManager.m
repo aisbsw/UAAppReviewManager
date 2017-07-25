@@ -1282,7 +1282,7 @@ static NSString * const reviewURLTemplate                   = @"macappstore://it
 	
 - (void)appWillResignActive:(NSNotification *)notification {
     UAAppReviewManagerDebugLog(@"appWillResignActive:");
-    [self hideRatingAlert];
+//    [self hideRatingAlert];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
